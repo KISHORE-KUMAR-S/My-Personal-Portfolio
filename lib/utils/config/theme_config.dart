@@ -33,7 +33,7 @@ class ThemeConfig {
         brightness: Brightness.light,
         primary: Colors.black,
         onPrimary: Colors.black,
-        secondary: Colors.deepPurple,
+        secondary: Colors.deepPurpleAccent,
         onSecondary: Colors.red,
         error: Colors.red,
         onError: Colors.red,
@@ -49,10 +49,10 @@ class ThemeConfig {
 
     return [
       defaultTheme,
-      modifyThemeColor(theme: defaultTheme, color: Colors.indigo),
-      modifyThemeColor(theme: defaultTheme, color: Colors.blue),
+      modifyThemeColor(theme: defaultTheme, color: Colors.indigoAccent),
+      modifyThemeColor(theme: defaultTheme, color: Colors.blueAccent),
       modifyThemeColor(theme: defaultTheme, color: Colors.green),
-      modifyThemeColor(theme: defaultTheme, color: Colors.yellow),
+      modifyThemeColor(theme: defaultTheme, color: Colors.amber),
       modifyThemeColor(theme: defaultTheme, color: Colors.orange),
       modifyThemeColor(theme: defaultTheme, color: Colors.red),
     ];

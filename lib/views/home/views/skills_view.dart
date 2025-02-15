@@ -27,10 +27,11 @@ class SkillsView extends StatelessWidget {
             backgroundText: "Expertise",
             delay: Duration(milliseconds: 10),
             duration: Duration(milliseconds: 500),
-            foregroundStyle:
-                theme.textTheme.headlineLarge?.copyWith(fontSize: 50),
+            foregroundStyle: theme.textTheme.headlineLarge?.copyWith(
+              fontSize: context.isMobile ? 25 : 50,
+            ),
             backgroundStyle: TextStyle(
-              fontSize: 100,
+              fontSize: context.isMobile ? 50 : 100,
               fontFamily: 'Urbanist',
               foreground: Constants.outlinedText(context),
             ),
@@ -130,7 +131,11 @@ class SkillsBuilder extends StatelessWidget {
             title,
             maxLines: 1,
             style: theme.textTheme.headlineLarge?.copyWith(
-              fontSize: context.isMobile ? 28 : 40,
+              fontSize: context.isMobile
+                  ? 20
+                  : context.isTablet
+                      ? 28
+                      : 40,
               height: 1,
             ),
           ),
@@ -145,6 +150,7 @@ class SkillsBuilder extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10, left: 10),
                   child: Row(
+                    spacing: 10,
                     children: [
                       if (isImageIcon)
                         ImageIcon(
@@ -158,10 +164,10 @@ class SkillsBuilder extends StatelessWidget {
                           color: Colors.white,
                           size: 50,
                         ),
-                      const SizedBox(width: 10),
-                      Text(
+                      AutoSizeText(
                         skill["text"] as String,
-                        style: TextStyle(fontSize: 28),
+                        maxLines: 3,
+                        style: TextStyle(fontSize: context.isMobile ? 14 : 28),
                       ),
                     ],
                   ),

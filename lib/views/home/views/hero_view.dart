@@ -216,6 +216,7 @@ class _HeroViewState extends State<HeroView> {
     double fontSize,
     ThemeData theme,
   ) {
+    final isMobile = context.isMobile;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -224,7 +225,10 @@ class _HeroViewState extends State<HeroView> {
           child: OverlappingText(
             text: "",
             backgroundText: "Kishore Kumar",
-            offset: Offset(fontSize / 3, fontSize / 3),
+            offset: Offset(
+              isMobile ? fontSize / 8 : fontSize / 3,
+              isMobile ? fontSize / 1.25 : fontSize / 3,
+            ),
             foregroundStyle:
                 theme.textTheme.headlineLarge?.copyWith(fontSize: fontSize),
             backgroundStyle: TextStyle(
