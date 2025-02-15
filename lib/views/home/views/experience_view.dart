@@ -1,9 +1,7 @@
-import 'package:entry/entry.dart';
 import 'package:flutter/material.dart';
+import 'package:personal_portfolio/models/experience.dart';
+import '../widgets/experience_widgets/step_card.dart';
 
-import '../../../utils/config/constants.dart';
-import '../../../utils/extensions/context_extensions.dart';
-import '../../../widgets/overlapping_text.dart';
 import '../widgets/section_title.dart';
 
 class ExperienceView extends StatefulWidget {
@@ -16,16 +14,32 @@ class ExperienceView extends StatefulWidget {
 class _ExperienceViewState extends State<ExperienceView> {
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
+    final experiences = Experience.kExperiences;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
+      spacing: 50,
       children: [
         SectionTitle(
-          title: "My",
+          title: "My Work",
           backgroundText: "Experience",
         ),
+        ...experiences.map(
+          (experience) {
+            int index = experiences.indexOf(experience);
+            double start = index / experiences.length;
+            double end = (index + 1) > experiences.length
+                ? 10
+                : (index + 1) / experiences.length;
+
+            return StepCard(
+              experience: experience,
+              start: start,
+              end: end,
+              index: index + 1,
+            );
+          },
+        )
       ],
     );
   }
