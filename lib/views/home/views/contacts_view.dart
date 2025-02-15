@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../../../utils/config/constants.dart';
 import '../../../utils/extensions/context_extensions.dart';
-import '../widgets/section_title.dart';
-import 'contact_rotation_card.dart';
+import '../widgets/section_title_with_subtitle.dart';
+import '../widgets/contact_widgets/contact_rotation_card.dart';
 
 class ContactsView extends StatefulWidget {
   const ContactsView({super.key});
@@ -28,30 +28,8 @@ class _ContactsViewState extends State<ContactsView> {
                 child: Column(
                   spacing: 50.0,
                   children: [
-                    SectionTitle(
-                      backgroundText: "Ready to get\n Conversation\n started?",
-                      foregroundText: "",
-                      subtitle: "GOOD IDEA!",
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: theme.colorScheme.secondary,
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text.rich(
-                            textAlign: TextAlign.center,
-                            TextSpan(
-                              text: "Then, I'd love to hear from you!",
-                              style: theme.textTheme.titleMedium!.copyWith(
-                                fontSize: context.isMobile ? 24.0 : null,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    _buildSectionTitle(),
+                    _buildSubTitle(theme, context),
                     ContactRotationCard(),
                   ],
                 ),
@@ -60,6 +38,36 @@ class _ContactsViewState extends State<ContactsView> {
           ),
         );
       },
+    );
+  }
+
+  Widget _buildSubTitle(ThemeData theme, BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: theme.colorScheme.secondary,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text.rich(
+            textAlign: TextAlign.center,
+            TextSpan(
+              text: "Then, I'd love to hear from you!",
+              style: theme.textTheme.titleMedium!.copyWith(
+                fontSize: context.isMobile ? 16.0 : null,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSectionTitle() {
+    return SectionTitleWithSubtitle(
+      backgroundText: "Ready to get\n Conversation\n started?",
+      foregroundText: "",
+      subtitle: "GOOD IDEA!",
     );
   }
 }

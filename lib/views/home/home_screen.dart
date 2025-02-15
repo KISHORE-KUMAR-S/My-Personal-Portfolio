@@ -4,8 +4,8 @@ import 'package:provider/provider.dart' show Consumer;
 
 import '../../providers/app_state_provider.dart';
 import '../../utils/sizes/sizes.dart';
-import '../splash/splash_screen.dart';
 import 'views/contacts_view.dart';
+import 'views/experience_view.dart';
 import 'views/hero_view.dart';
 import 'views/skills_view.dart';
 import 'widgets/hero_widgets/theme_switcher.dart';
@@ -48,6 +48,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     HeroView(scrollController: scrollController),
                     SizedBox(height: sizes.spacer(context) / 1.5),
                     SkillsView(),
+                    SizedBox(height: sizes.spacer(context) / 1.5),
+                    ExperienceView(),
                     SizedBox(height: sizes.spacer(context) / 1.5),
                     ContactsView(),
                     SizedBox(height: sizes.spacer(context) / 1.5),

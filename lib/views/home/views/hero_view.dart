@@ -98,7 +98,7 @@ class _HeroViewState extends State<HeroView> {
         margin: EdgeInsets.symmetric(horizontal: 30),
         child: Text.rich(
           textAlign: TextAlign.center,
-          maxLines: 9,
+          maxLines: 20,
           overflow: TextOverflow.ellipsis,
           TextSpan(
             text: "Flutter Developer & Open-Source Enthusiast",
