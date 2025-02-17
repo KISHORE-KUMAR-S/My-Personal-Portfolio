@@ -2,7 +2,7 @@ import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconsax/iconsax.dart' show Iconsax;
-import '../../../utils/animations/pointer_animation.dart';
+import '../../../utils/animations/stick_animation.dart';
 import '../../../utils/config/constants.dart';
 import '../../../utils/extensions/context_extensions.dart';
 import '../widgets/section_title.dart';
@@ -21,7 +21,7 @@ class SkillsView extends StatelessWidget {
       spacing: mediaQuerySize.height * 0.06,
       children: [
         _buildSectionTitle(theme, context),
-        PointerAnimation(),
+        StickAnimation(),
         _buildSkillsSection(context, theme),
       ],
     );

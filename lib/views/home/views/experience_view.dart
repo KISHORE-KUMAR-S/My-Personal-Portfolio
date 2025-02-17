@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../models/experience.dart';
-import '../../../utils/animations/pointer_animation.dart';
+import '../../../utils/animations/stick_animation.dart';
 import '../widgets/experience_widgets/step_card.dart';
 import '../widgets/section_title.dart';
 
@@ -25,7 +25,7 @@ class _ExperienceViewState extends State<ExperienceView> {
           title: "My Work",
           backgroundText: "Experience",
         ),
-        PointerAnimation(),
+        StickAnimation(),
         ...experiences.map(
           (experience) {
             int index = experiences.indexOf(experience);

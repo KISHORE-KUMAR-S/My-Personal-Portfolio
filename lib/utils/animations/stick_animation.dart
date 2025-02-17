@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 import '../config/constants.dart';
 import 'stick.dart';
 
-class PointerAnimation extends StatefulWidget {
-  PointerAnimation({super.key, this.color});
+class StickAnimation extends StatefulWidget {
+  const StickAnimation({super.key, this.color = Colors.white});
 
-  Color? color;
+  final Color color;
 
   @override
-  State<PointerAnimation> createState() => _PointerAnimationState();
+  State<StickAnimation> createState() => _StickAnimationState();
 }
 
-class _PointerAnimationState extends State<PointerAnimation>
+class _StickAnimationState extends State<StickAnimation>
     with TickerProviderStateMixin {
   late AnimationController stickController;
 
@@ -37,7 +37,7 @@ class _PointerAnimationState extends State<PointerAnimation>
         controller: stickController,
         height: mediaQuerySize.height * 0.4,
         width: 6,
-        boxColor: widget.color ?? Colors.white,
+        boxColor: widget.color,
         coverColor: theme.colorScheme.primary,
         visibleBoxCurve: Curves.fastLinearToSlowEaseIn,
       ),

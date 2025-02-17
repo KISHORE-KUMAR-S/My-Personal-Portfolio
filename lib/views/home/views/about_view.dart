@@ -1,6 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart' show AutoSizeText;
 import 'package:flutter/material.dart';
-import '../../../utils/animations/pointer_animation.dart';
+import '../../../utils/animations/stick_animation.dart';
 import '../../../utils/extensions/context_extensions.dart';
 
 class AboutView extends StatelessWidget {
@@ -20,7 +20,7 @@ class AboutView extends StatelessWidget {
       children: [
         _buildAboutSection(theme, context, isMobile),
         _buildAboutTitle(isMobile, theme, title),
-        PointerAnimation(color: theme.colorScheme.secondary),
+        StickAnimation(color: theme.colorScheme.secondary),
         _buildQuote(theme, isMobile),
       ],
     );
