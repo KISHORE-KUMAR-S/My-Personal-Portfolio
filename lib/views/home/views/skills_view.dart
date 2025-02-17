@@ -2,10 +2,9 @@ import 'package:entry/entry.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconsax/iconsax.dart';
-
+import '../../../utils/animations/pointer_animation.dart';
 import '../../../utils/config/constants.dart';
 import '../../../utils/extensions/context_extensions.dart';
-import '../../../widgets/overlapping_text.dart';
 import '../widgets/section_title.dart';
 import '../widgets/skills_widgets/skills_builder.dart';
 
@@ -22,6 +21,7 @@ class SkillsView extends StatelessWidget {
       spacing: mediaQuerySize.height * 0.06,
       children: [
         _buildSectionTitle(theme, context),
+        PointerAnimation(),
         _buildSkillsSection(context, theme),
       ],
     );
@@ -40,59 +40,68 @@ class SkillsView extends StatelessWidget {
         runAlignment: WrapAlignment.center,
         runSpacing: 50,
         children: [
-          SkillsBuilder(
-            theme: theme,
-            title: "Programming Languages",
-            subtitle: "Logic defines everything",
-            items: [
-              {"icon": FontAwesomeIcons.dartLang, "text": "Dart"},
-              {"icon": FontAwesomeIcons.java, "text": "Java"},
-            ],
+          Entry.opacity(
+            delay: Constants.mediumDelay,
+            child: SkillsBuilder(
+              theme: theme,
+              title: "Programming Languages",
+              subtitle: "Logic defines everything",
+              items: [
+                {"icon": FontAwesomeIcons.dartLang, "text": "Dart"},
+                {"icon": FontAwesomeIcons.java, "text": "Java"},
+              ],
+            ),
           ),
-          SkillsBuilder(
-            theme: theme,
-            title: "Tools and Technologies",
-            subtitle: "Saves Time",
-            items: [
-              {
-                "icon": AssetImage('assets/images/firebase.png'),
-                "text": "Firebase",
-                "isImageIcon": true,
-              },
-              {
-                "icon": FontAwesomeIcons.flutter,
-                "text": "Flutter",
-              },
-              {
-                "icon": FontAwesomeIcons.git,
-                "text": "Git",
-              },
-              {
-                "icon": FontAwesomeIcons.github,
-                "text": "Github",
-              },
-              {
-                "icon": Iconsax.code,
-                "text": "Rest API Integration",
-              },
-              {
-                "icon": FontAwesomeIcons.uikit,
-                "text": "UI / UX Design",
-              },
-            ],
+          Entry.opacity(
+            delay: Constants.mediumDelay * 1.25,
+            child: SkillsBuilder(
+              theme: theme,
+              title: "Tools and Technologies",
+              subtitle: "Saves Time",
+              items: [
+                {
+                  "icon": AssetImage('assets/images/firebase.png'),
+                  "text": "Firebase",
+                  "isImageIcon": true,
+                },
+                {
+                  "icon": FontAwesomeIcons.flutter,
+                  "text": "Flutter",
+                },
+                {
+                  "icon": FontAwesomeIcons.git,
+                  "text": "Git",
+                },
+                {
+                  "icon": FontAwesomeIcons.github,
+                  "text": "Github",
+                },
+                {
+                  "icon": Iconsax.code,
+                  "text": "Rest API Integration",
+                },
+                {
+                  "icon": FontAwesomeIcons.uikit,
+                  "text": "UI / UX Design",
+                },
+              ],
+            ),
           ),
-          SkillsBuilder(
-            theme: theme,
-            title: "State Management",
-            subtitle: "Defines behaviour",
-            items: [
-              {
-                "icon": AssetImage('assets/images/get_x.png'),
-                "text": "GetX",
-                "isImageIcon": true,
-              },
-              {"icon": FontAwesomeIcons.dartLang, "text": "Provider"},
-            ],
+          Entry.opacity(
+            delay: Constants.mediumDelay * 1.5,
+            child: SkillsBuilder(
+              theme: theme,
+              title: "State Management",
+              subtitle: "Defines behaviour",
+              items: [
+                {
+                  "icon": AssetImage('assets/images/get_x.png'),
+                  "text": "GetX",
+                  "isImageIcon": true,
+                },
+                {"icon": FontAwesomeIcons.dartLang, "text": "Provider"},
+              ],
+            ),
           ),
         ],
       ),

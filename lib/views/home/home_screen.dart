@@ -4,6 +4,8 @@ import 'package:provider/provider.dart' show Consumer;
 
 import '../../providers/app_state_provider.dart';
 import '../../utils/sizes/sizes.dart';
+import '../splash/splash_screen.dart';
+import 'views/about_view.dart';
 import 'views/contacts_view.dart';
 import 'views/experience_view.dart';
 import 'views/hero_view.dart';
@@ -32,60 +34,60 @@ class _HomeScreenState extends State<HomeScreen> {
           transitionBuilder: (child, animation) {
             return FadeTransition(opacity: animation, child: child);
           },
-          child:
-              // !provider.isSplashAnimationDone
-              //     ? SplashScreen(key: ValueKey(0))
-              //     :
-              Scaffold(
-            body: Stack(
-              children: [
-                ListView(
-                  controller: scrollController,
-                  physics: provider.isNavbarOpen
-                      ? NeverScrollableScrollPhysics()
-                      : null,
-                  children: [
-                    HeroView(scrollController: scrollController),
-                    SizedBox(height: sizes.spacer(context) / 1.5),
-                    SkillsView(),
-                    SizedBox(height: sizes.spacer(context) / 1.5),
-                    ExperienceView(),
-                    SizedBox(height: sizes.spacer(context) / 1.5),
-                    ContactsView(),
-                    SizedBox(height: sizes.spacer(context) / 1.5),
-                  ],
-                ),
-                ThemeSwitcher(),
-                Positioned(
-                  bottom: 20,
-                  right: 10,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                          color: Colors.white.withValues(alpha: 0.3)),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: ElevatedButton.icon(
-                      style: ButtonStyle(
-                        backgroundColor: WidgetStatePropertyAll(
-                            Colors.transparent.withValues(alpha: 0.1)),
+          child: !provider.isSplashAnimationDone
+              ? SplashScreen(key: ValueKey(0))
+              : Scaffold(
+                  body: Stack(
+                    children: [
+                      ListView(
+                        controller: scrollController,
+                        physics: provider.isNavbarOpen
+                            ? NeverScrollableScrollPhysics()
+                            : null,
+                        children: [
+                          HeroView(scrollController: scrollController),
+                          SizedBox(height: sizes.spacer(context) / 1.5),
+                          SkillsView(),
+                          SizedBox(height: sizes.spacer(context) / 1.5),
+                          ExperienceView(),
+                          SizedBox(height: sizes.spacer(context) / 1.5),
+                          AboutView(),
+                          SizedBox(height: sizes.spacer(context) / 1.5),
+                          ContactsView(),
+                          SizedBox(height: sizes.spacer(context) / 1.5),
+                        ],
                       ),
-                      onPressed: () {},
-                      icon: Icon(
-                        Iconsax.document_download,
-                        size: 20,
-                        color: Colors.white,
-                      ),
-                      label: Text(
-                        "Resume",
-                        style: theme.textTheme.bodyLarge,
-                      ),
-                    ),
+                      ThemeSwitcher(),
+                      Positioned(
+                        bottom: 20,
+                        right: 10,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color: Colors.white.withValues(alpha: 0.3)),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: ElevatedButton.icon(
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStatePropertyAll(
+                                  Colors.transparent.withValues(alpha: 0.1)),
+                            ),
+                            onPressed: () {},
+                            icon: Icon(
+                              Iconsax.document_download,
+                              size: 20,
+                              color: Colors.white,
+                            ),
+                            label: Text(
+                              "Resume",
+                              style: theme.textTheme.bodyLarge,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
                   ),
-                )
-              ],
-            ),
-          ),
+                ),
         );
       },
     );

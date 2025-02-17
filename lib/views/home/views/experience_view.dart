@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:personal_portfolio/models/experience.dart';
+import '../../../models/experience.dart';
+import '../../../utils/animations/pointer_animation.dart';
 import '../widgets/experience_widgets/step_card.dart';
-
 import '../widgets/section_title.dart';
 
 class ExperienceView extends StatefulWidget {
@@ -15,6 +15,7 @@ class _ExperienceViewState extends State<ExperienceView> {
   @override
   Widget build(BuildContext context) {
     final experiences = Experience.kExperiences;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -24,6 +25,7 @@ class _ExperienceViewState extends State<ExperienceView> {
           title: "My Work",
           backgroundText: "Experience",
         ),
+        PointerAnimation(),
         ...experiences.map(
           (experience) {
             int index = experiences.indexOf(experience);

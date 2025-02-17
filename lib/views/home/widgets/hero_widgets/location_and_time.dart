@@ -7,14 +7,14 @@ import 'package:intl/intl.dart' show DateFormat;
 import '../../../../utils/config/constants.dart';
 import '../../../../utils/extensions/context_extensions.dart';
 
-class WeatherAndTime extends StatefulWidget {
-  const WeatherAndTime({super.key});
+class LocationAndTime extends StatefulWidget {
+  const LocationAndTime({super.key});
 
   @override
-  State<WeatherAndTime> createState() => _WeatherAndTimeState();
+  State<LocationAndTime> createState() => _LocationAndTimeState();
 }
 
-class _WeatherAndTimeState extends State<WeatherAndTime> {
+class _LocationAndTimeState extends State<LocationAndTime> {
   late final Timer _timer;
   DateTime _now = DateTime.now();
 
@@ -54,10 +54,10 @@ class _WeatherAndTimeState extends State<WeatherAndTime> {
           mainAxisAlignment: MainAxisAlignment.center,
           spacing: 20,
           children: [
+            if (!context.isMobile) _buildIcon(colorScheme, Iconsax.location),
             if (!context.isMobile) Text("India", style: textTheme.bodyLarge),
-            _buildText("25°C", textTheme, fontSize),
             _buildAnimatedFlipCounter(
-              value: DateFormat('HH').format(_now),
+              value: DateFormat('hh').format(_now),
               fontSize: fontSize,
               textTheme: textTheme,
             ),
@@ -74,17 +74,11 @@ class _WeatherAndTimeState extends State<WeatherAndTime> {
               textTheme: textTheme,
               wholeDigits: 2,
             ),
-            if (!context.isMobile) _buildWeatherIcon(colorScheme),
+            Text(DateFormat('a').format(_now), style: textTheme.bodyLarge),
+            if (!context.isMobile) _buildIcon(colorScheme, Iconsax.clock),
           ],
         ),
       ),
-    );
-  }
-
-  Widget _buildText(String text, TextTheme textTheme, double fontSize) {
-    return Text(
-      text,
-      style: textTheme.bodyLarge!.copyWith(fontSize: fontSize),
     );
   }
 
@@ -110,7 +104,7 @@ class _WeatherAndTimeState extends State<WeatherAndTime> {
     );
   }
 
-  Widget _buildWeatherIcon(ColorScheme colorScheme) {
+  Widget _buildIcon(ColorScheme colorScheme, IconData icon) {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(color: Colors.white),
@@ -121,7 +115,7 @@ class _WeatherAndTimeState extends State<WeatherAndTime> {
         radius: 20,
         backgroundColor: colorScheme.secondary,
         child: Icon(
-          Iconsax.cloud,
+          icon,
           color: Colors.white,
           size: 15,
         ),

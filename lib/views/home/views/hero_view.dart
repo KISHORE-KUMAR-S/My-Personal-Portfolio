@@ -8,7 +8,7 @@ import '../../../utils/extensions/theme_extensions.dart';
 import '../../../utils/sizes/sizes.dart';
 import '../../../widgets/overlapping_hero_text.dart';
 import '../../../widgets/overlapping_text.dart';
-import '../widgets/hero_widgets/weather_and_time.dart';
+import '../widgets/hero_widgets/location_and_time.dart';
 
 class HeroView extends StatefulWidget {
   const HeroView({super.key, required this.scrollController});
@@ -58,7 +58,7 @@ class _HeroViewState extends State<HeroView> {
             clipBehavior: Clip.none,
             children: [
               _buildBackgroundGradient(context),
-              WeatherAndTime(),
+              LocationAndTime(),
               ..._buildAnimatedTexts(constraints, fontSize, animationDuration),
               _buildNameAndSummary(mediaQuerySize, fontSize, theme, context),
             ],
