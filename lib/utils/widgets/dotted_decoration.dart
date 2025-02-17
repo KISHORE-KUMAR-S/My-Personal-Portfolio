@@ -1,4 +1,4 @@
-import 'dart:ui';
+import 'dart:ui' show PathMetric, PathMetrics;
 import 'package:flutter/material.dart';
 
 import '../enums/enums.dart';

@@ -1,4 +1,4 @@
-import 'package:entry/entry.dart';
+import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
 
 import '../../../utils/config/constants.dart';

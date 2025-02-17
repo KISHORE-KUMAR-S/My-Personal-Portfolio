@@ -1,10 +1,10 @@
-import 'package:entry/entry.dart';
+import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
 
 import '../../../utils/config/constants.dart';
 import '../../../utils/extensions/context_extensions.dart';
-import '../widgets/section_title_with_subtitle.dart';
 import '../widgets/contact_widgets/contact_rotation_card.dart';
+import '../widgets/section_title_with_subtitle.dart';
 
 class ContactsView extends StatefulWidget {
   const ContactsView({super.key});

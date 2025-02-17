@@ -1,8 +1,9 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:entry/entry.dart';
+import 'package:auto_size_text/auto_size_text.dart' show AutoSizeText;
+import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
-import 'package:personal_portfolio/utils/extensions/context_extensions.dart';
 import 'package:visibility_detector/visibility_detector.dart';
+
+import 'package:personal_portfolio/utils/extensions/context_extensions.dart';
 
 import '../../../utils/config/constants.dart';
 import '../../../utils/widgets/constraint_title.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:personal_portfolio/models/experience.dart';
+import '../../../../models/experience.dart';
 import '../../../../utils/extensions/context_extensions.dart';
 import '../../../../utils/extensions/date_time_extensions.dart';
 import '../../../../utils/extensions/string_extensions.dart';

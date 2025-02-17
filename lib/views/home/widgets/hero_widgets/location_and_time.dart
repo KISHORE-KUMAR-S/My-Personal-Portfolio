@@ -1,8 +1,8 @@
 import 'dart:async' show Timer;
 import 'package:animated_flip_counter/animated_flip_counter.dart';
-import 'package:entry/entry.dart';
+import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:iconsax/iconsax.dart' show Iconsax;
 import 'package:intl/intl.dart' show DateFormat;
 import '../../../../utils/config/constants.dart';
 import '../../../../utils/extensions/context_extensions.dart';

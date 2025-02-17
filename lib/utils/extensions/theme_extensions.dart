@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show BuildContext, FontWeight, InputDecorationTheme, Theme, ThemeData;
 
 const bold = FontWeight.w700;
 const semiBold = FontWeight.w600;

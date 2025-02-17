@@ -1,6 +1,6 @@
-import 'package:entry/entry.dart';
+import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:provider/provider.dart' show ReadContext;
 
 import '../../../../providers/app_state_provider.dart';
 import '../../../../utils/config/theme_config.dart';

@@ -1,5 +1,5 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:entry/entry.dart';
+import 'package:auto_size_text/auto_size_text.dart' show AutoSizeText;
+import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
 
 import '../../../utils/config/constants.dart';

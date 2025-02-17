@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:personal_portfolio/utils/extensions/context_extensions.dart';
+import '../../../../utils/extensions/context_extensions.dart';
 
 class SocialIconsButton extends StatefulWidget {
   const SocialIconsButton({

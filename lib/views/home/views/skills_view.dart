@@ -1,7 +1,7 @@
-import 'package:entry/entry.dart';
+import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:iconsax/iconsax.dart' show Iconsax;
 import '../../../utils/animations/pointer_animation.dart';
 import '../../../utils/config/constants.dart';
 import '../../../utils/extensions/context_extensions.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:iconsax/iconsax.dart' show Iconsax;
 import 'package:provider/provider.dart' show Consumer;
 
 import '../../providers/app_state_provider.dart';
