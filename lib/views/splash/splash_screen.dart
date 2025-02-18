@@ -70,6 +70,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final isLightMode = context.read<AppStateProvider>().isLightMode;
 
     return Scaffold(
       body: AnimatedContainer(
@@ -81,7 +82,8 @@ class _SplashScreenState extends State<SplashScreen>
             alignment: Alignment.center,
             children: [
               Positioned.fill(
-                child: Container(color: Colors.black),
+                child:
+                    Container(color: isLightMode ? Colors.white : Colors.black),
               ),
               Align(
                 alignment: Alignment.center,
