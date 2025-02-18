@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:personal_portfolio/providers/app_state_provider.dart';
 import 'package:provider/provider.dart';
+
 import '../../../../models/experience.dart';
+import '../../../../providers/app_state_provider.dart';
 import '../../../../utils/extensions/context_extensions.dart';
 import '../../../../utils/extensions/date_time_extensions.dart';
 import '../../../../utils/extensions/string_extensions.dart';
@@ -26,7 +27,7 @@ class StepCard extends StatelessWidget {
     final isLightMode = context.read<AppStateProvider>().isLightMode;
 
     return context.isDesktop
-        ? _buildDesktopStepCard(mediaQuerySize, theme)
+        ? _buildDesktopStepCard(mediaQuerySize, theme, isLightMode)
         : _buildMobileStepCard(mediaQuerySize, theme, isLightMode);
   }
 
@@ -116,13 +117,17 @@ class StepCard extends StatelessWidget {
     );
   }
 
-  Widget _buildDesktopStepCard(Size mediaQuerySize, ThemeData theme) {
+  Widget _buildDesktopStepCard(
+      Size mediaQuerySize, ThemeData theme, bool isLightMode) {
     return IntrinsicHeight(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _buildTimeline(mediaQuerySize, theme),
-          VerticalDivider(thickness: 1, color: Colors.white),
+          VerticalDivider(
+            thickness: 1,
+            color: isLightMode ? Colors.black : Colors.white,
+          ),
           _buildExperiences(theme),
         ],
       ),
