@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:personal_portfolio/providers/app_state_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../providers/app_state_provider.dart';
 import '../../../../utils/config/constants.dart';
 import '../../../../utils/enums/enums.dart';
 import '../../../../utils/widgets/dotted_decoration.dart';

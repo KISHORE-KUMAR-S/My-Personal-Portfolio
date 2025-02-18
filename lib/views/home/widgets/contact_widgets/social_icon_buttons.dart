@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:personal_portfolio/providers/app_state_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+
+import '../../../../providers/app_state_provider.dart';
 import '../../../../utils/extensions/context_extensions.dart';
 
 class SocialIconsButton extends StatefulWidget {

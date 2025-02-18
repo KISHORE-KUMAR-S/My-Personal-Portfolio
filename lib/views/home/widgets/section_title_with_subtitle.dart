@@ -3,9 +3,8 @@ import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
-import 'package:personal_portfolio/utils/extensions/context_extensions.dart';
-
 import '../../../utils/config/constants.dart';
+import '../../../utils/extensions/context_extensions.dart';
 import '../../../utils/widgets/constraint_title.dart';
 
 class SectionTitleWithSubtitle extends StatefulWidget {

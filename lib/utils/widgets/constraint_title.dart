@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:personal_portfolio/providers/app_state_provider.dart';
+import '../../providers/app_state_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../extensions/context_extensions.dart';

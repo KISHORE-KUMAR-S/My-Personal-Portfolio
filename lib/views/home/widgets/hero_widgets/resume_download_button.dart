@@ -1,10 +1,11 @@
 import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart' show Iconsax;
-import 'package:personal_portfolio/providers/app_state_provider.dart';
+
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher_string.dart' show launchUrlString;
 
+import '../../../../providers/app_state_provider.dart';
 import '../../../../utils/config/constants.dart';
 
 class ResumeDownloadButton extends StatelessWidget {

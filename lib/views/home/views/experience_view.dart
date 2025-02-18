@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:personal_portfolio/providers/app_state_provider.dart';
 import 'package:provider/provider.dart';
+
 import '../../../models/experience.dart';
+import '../../../providers/app_state_provider.dart';
 import '../../../utils/animations/stick_animation.dart';
 import '../widgets/experience_widgets/step_card.dart';
 import '../widgets/section_title.dart';

@@ -1,7 +1,8 @@
 import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
-import 'package:personal_portfolio/providers/app_state_provider.dart';
 import 'package:provider/provider.dart';
+
+import '../providers/app_state_provider.dart';
 import '../utils/extensions/context_extensions.dart';
 
 class OverlappingHeroText extends StatefulWidget {
