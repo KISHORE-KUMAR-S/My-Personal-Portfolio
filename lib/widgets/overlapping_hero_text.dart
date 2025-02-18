@@ -1,5 +1,7 @@
 import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
+import 'package:personal_portfolio/providers/app_state_provider.dart';
+import 'package:provider/provider.dart';
 import '../utils/extensions/context_extensions.dart';
 
 class OverlappingHeroText extends StatefulWidget {
@@ -27,7 +29,7 @@ class _OverlappingHeroTextState extends State<OverlappingHeroText> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
+    bool isLightMode = context.read<AppStateProvider>().isLightMode;
     double fontSize = context.getResponiveValue([70, 80, 120]).toDouble();
 
     return Entry.all(
@@ -55,7 +57,9 @@ class _OverlappingHeroTextState extends State<OverlappingHeroText> {
                 widget.backgroundText ?? widget.text,
                 style: widget.backgroundStyle ??
                     theme.textTheme.headlineLarge?.copyWith(
-                      color: theme.colorScheme.secondary,
+                      color: isLightMode
+                          ? Colors.black
+                          : theme.colorScheme.secondary,
                       fontSize: fontSize,
                       fontWeight: FontWeight.bold,
                     ),
@@ -67,6 +71,7 @@ class _OverlappingHeroTextState extends State<OverlappingHeroText> {
             style: theme.textTheme.headlineLarge!.copyWith(
               fontSize: fontSize,
               fontWeight: FontWeight.bold,
+              color: isLightMode ? theme.colorScheme.secondary : Colors.white,
             ),
           )
         ],

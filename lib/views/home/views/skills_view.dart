@@ -2,6 +2,8 @@ import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconsax/iconsax.dart' show Iconsax;
+import 'package:provider/provider.dart' show ReadContext;
+import '../../../providers/app_state_provider.dart';
 import '../../../utils/animations/stick_animation.dart';
 import '../../../utils/config/constants.dart';
 import '../../../utils/extensions/context_extensions.dart';
@@ -15,13 +17,14 @@ class SkillsView extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final mediaQuerySize = MediaQuery.of(context).size;
+    final isLightMode = context.read<AppStateProvider>().isLightMode;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       spacing: mediaQuerySize.height * 0.06,
       children: [
         _buildSectionTitle(theme, context),
-        StickAnimation(),
+        StickAnimation(color: isLightMode ? Colors.black : Colors.white),
         _buildSkillsSection(context, theme),
       ],
     );

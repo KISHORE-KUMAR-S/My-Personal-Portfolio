@@ -20,7 +20,10 @@ class _ThemeSwitcherMobileState extends State<ThemeSwitcherMobile> {
   @override
   Widget build(BuildContext context) {
     final provider = context.read<AppStateProvider>();
-    final allThemes = ThemeConfig.allThemes();
+    final allThemes = ThemeConfig.allThemes(
+      isLightMode: provider.isLightMode,
+      themeIndex: provider.themeRepo.currentTheme,
+    );
 
     return AnimatedPositioned(
       duration: Duration(milliseconds: 300),

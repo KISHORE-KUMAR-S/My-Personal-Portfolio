@@ -9,7 +9,7 @@ import 'repositories/theme_repository.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized;
 
-  final ThemeRepository themeRepo = ThemeRepository(0);
+  final ThemeRepository themeRepo = ThemeRepository(0, false);
 
   runApp(ChangeNotifierProvider(
     create: (BuildContext context) => AppStateProvider(themeRepo),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:personal_portfolio/providers/app_state_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import '../../../../utils/extensions/context_extensions.dart';
 
@@ -27,7 +29,13 @@ class _SocialIconsButtonState extends State<SocialIconsButton> {
   Widget build(BuildContext context) {
     bool isLeetCode = widget.isLeetCode ?? false;
     final theme = Theme.of(context);
-    final onHover = isHovering ? theme.colorScheme.secondary : Colors.white;
+    final isLightMode = context.read<AppStateProvider>().isLightMode;
+
+    final onHover = isHovering
+        ? theme.colorScheme.secondary
+        : isLightMode
+            ? Colors.black
+            : Colors.white;
     final isMobile = context.isMobile;
 
     final isEmail = widget.isEmail ?? false;

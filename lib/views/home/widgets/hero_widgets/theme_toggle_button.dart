@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../../providers/app_state_provider.dart';
 import '../../../../utils/config/theme_config.dart';
 
 class ThemeToggleButton extends StatefulWidget {
@@ -22,12 +24,13 @@ class ThemeToggleButton extends StatefulWidget {
 
 class _ThemeToggleButtonState extends State<ThemeToggleButton> {
   final animationDuration = Duration(milliseconds: 500);
-  final allThemes = ThemeConfig.allThemes();
 
   bool isHovering = false;
 
   @override
   Widget build(BuildContext context) {
+    final isLightMode = context.read<AppStateProvider>().isLightMode;
+
     return MouseRegion(
       onEnter: (event) => setState(() => isHovering = true),
       onExit: (event) => setState(() => isHovering = false),
@@ -36,18 +39,20 @@ class _ThemeToggleButtonState extends State<ThemeToggleButton> {
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
         enableFeedback: false,
-        child: _buildBorder(),
+        child: _buildBorder(isLightMode: isLightMode),
       ),
     );
   }
 
-  AnimatedContainer _buildBorder() {
+  AnimatedContainer _buildBorder({required bool isLightMode}) {
     return AnimatedContainer(
       duration: animationDuration,
       curve: Curves.ease,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        border: widget.isActive ? Border.all(color: Colors.white) : null,
+        border: widget.isActive
+            ? Border.all(color: isLightMode ? Colors.black : Colors.white)
+            : null,
       ),
       alignment: Alignment.center,
       child: _buildPaddingAroundBorder(),
@@ -74,6 +79,12 @@ class _ThemeToggleButtonState extends State<ThemeToggleButton> {
   }
 
   Widget _buildColorContainers() {
+    final provider = context.read<AppStateProvider>();
+    final allThemes = ThemeConfig.allThemes(
+      isLightMode: provider.isLightMode,
+      themeIndex: provider.themeRepo.currentTheme,
+    );
+
     return AnimatedContainer(
       duration: animationDuration,
       curve: Curves.ease,

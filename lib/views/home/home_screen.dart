@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart' show AutoSizeText;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart' show Consumer;
+import 'package:provider/provider.dart' show Consumer, ReadContext;
 
 import '../../providers/app_state_provider.dart';
 import '../../utils/sizes/sizes.dart';
@@ -13,6 +13,7 @@ import 'views/hero_view.dart';
 import 'views/skills_view.dart';
 import 'widgets/hero_widgets/resume_download_button.dart';
 import 'widgets/hero_widgets/theme_switcher.dart';
+import 'widgets/hero_widgets/toggle_mode.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -28,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final sizes = Sizes();
     final theme = Theme.of(context);
+    final isLightMode = context.read<AppStateProvider>().isLightMode;
 
     return Consumer<AppStateProvider>(
       builder: (BuildContext context, provider, Widget? child) {
@@ -63,7 +65,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               Icon(
                                 FontAwesomeIcons.trowelBricks,
-                                color: Colors.white,
+                                color:
+                                    isLightMode ? Colors.black : Colors.white,
                                 size: 20,
                               ),
                               AutoSizeText(
@@ -80,7 +83,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                       ThemeSwitcher(),
-                      ResumeDownloadButton(theme: theme)
+                      ResumeDownloadButton(theme: theme),
+                      ToggleMode(theme: theme, provider: provider),
                     ],
                   ),
                 ),

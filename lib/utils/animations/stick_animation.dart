@@ -5,7 +5,7 @@ import '../config/constants.dart';
 import 'stick.dart';
 
 class StickAnimation extends StatefulWidget {
-  const StickAnimation({super.key, this.color = Colors.white});
+  const StickAnimation({super.key, required this.color});
 
   final Color color;
 

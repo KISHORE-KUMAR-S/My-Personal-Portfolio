@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:personal_portfolio/providers/app_state_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../extensions/context_extensions.dart';
 
@@ -14,6 +16,8 @@ class ConstraintTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isLightMode = context.read<AppStateProvider>().isLightMode;
+
     return ConstrainedBox(
       constraints: BoxConstraints(
         maxWidth: context.isMobile ? 300 : 400,
@@ -28,7 +32,7 @@ class ConstraintTitle extends StatelessWidget {
               child: AnimatedContainer(
                 duration: Duration(milliseconds: 2000),
                 height: 1,
-                color: Colors.white,
+                color: isLightMode ? Colors.black : Colors.white,
                 curve: Curves.easeOutCirc,
                 width: isVisible ? 400 : 0,
               ),

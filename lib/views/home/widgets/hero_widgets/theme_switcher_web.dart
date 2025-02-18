@@ -13,7 +13,12 @@ class ThemeSwitcherWeb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final allThemes = ThemeConfig.allThemes();
+    final provider = context.read<AppStateProvider>();
+    final allThemes = ThemeConfig.allThemes(
+      isLightMode: provider.isLightMode,
+      themeIndex: provider.themeRepo.currentTheme,
+    );
+
     return Positioned(
       right: 20,
       bottom: 0,

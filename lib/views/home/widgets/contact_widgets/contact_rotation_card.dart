@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:personal_portfolio/providers/app_state_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../utils/config/constants.dart';
 import '../../../../utils/enums/enums.dart';
@@ -20,6 +22,7 @@ class _ContactRotationCardState extends State<ContactRotationCard> {
     final mediaQuerySize = MediaQuery.of(context).size;
     final width = mediaQuerySize.width;
     double circleWidth = width < 500 ? width - 50 : 500;
+    final isLightMode = context.read<AppStateProvider>().isLightMode;
 
     return Stack(
       alignment: Alignment.center,
@@ -32,7 +35,7 @@ class _ContactRotationCardState extends State<ContactRotationCard> {
             shape: Shape.circle,
             dash: [20],
             strokeWidth: 2,
-            color: Colors.white,
+            color: isLightMode ? Colors.black : Colors.white,
           ),
         ),
         Container(

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:personal_portfolio/providers/app_state_provider.dart';
+import 'package:provider/provider.dart';
 import '../../../models/experience.dart';
 import '../../../utils/animations/stick_animation.dart';
 import '../widgets/experience_widgets/step_card.dart';
@@ -15,6 +17,7 @@ class _ExperienceViewState extends State<ExperienceView> {
   @override
   Widget build(BuildContext context) {
     final experiences = Experience.kExperiences;
+    final isLightMode = context.read<AppStateProvider>().isLightMode;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -25,7 +28,7 @@ class _ExperienceViewState extends State<ExperienceView> {
           title: "My Work",
           backgroundText: "Experience",
         ),
-        StickAnimation(),
+        StickAnimation(color: isLightMode ? Colors.black : Colors.white),
         ...experiences.map(
           (experience) {
             int index = experiences.indexOf(experience);
