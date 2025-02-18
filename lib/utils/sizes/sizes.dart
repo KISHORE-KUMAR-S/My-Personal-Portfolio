@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show BuildContext;
 import '../extensions/context_extensions.dart';
 
 class Sizes {

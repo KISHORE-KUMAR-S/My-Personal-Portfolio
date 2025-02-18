@@ -1,4 +1,4 @@
-import 'package:delightful_toast/delight_toast.dart';
+import 'package:delightful_toast/delight_toast.dart' show DelightToastBar;
 import 'package:flutter/material.dart';
 
 extension ContextExtensions on BuildContext {
