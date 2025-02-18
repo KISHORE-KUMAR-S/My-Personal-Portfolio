@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart' show BuildContext, MediaQuery;
+import 'package:delightful_toast/delight_toast.dart';
+import 'package:flutter/material.dart';
 
 extension ContextExtensions on BuildContext {
   bool get isTablet {
@@ -23,5 +24,36 @@ extension ContextExtensions on BuildContext {
     if (isTablet) return number[1];
 
     return number[2];
+  }
+
+  showToast(String message) {
+    DelightToastBar(
+      snackbarDuration: Duration(seconds: 2),
+      autoDismiss: true,
+      builder: (BuildContext context) {
+        return Center(
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+            decoration: BoxDecoration(
+              color: Colors.black,
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  color: Theme.of(context).colorScheme.secondary,
+                  spreadRadius: 1,
+                )
+              ],
+            ),
+            child: Text(
+              message,
+              style: TextStyle(
+                fontWeight: FontWeight.w700,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        );
+      },
+    ).show(this);
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart' show Iconsax;
 import 'package:provider/provider.dart' show Consumer;
 
 import '../../providers/app_state_provider.dart';
@@ -10,6 +9,7 @@ import 'views/contacts_view.dart';
 import 'views/experience_view.dart';
 import 'views/hero_view.dart';
 import 'views/skills_view.dart';
+import 'widgets/hero_widgets/resume_download_button.dart';
 import 'widgets/hero_widgets/theme_switcher.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -58,33 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                       ThemeSwitcher(),
-                      Positioned(
-                        bottom: 20,
-                        right: 10,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                                color: Colors.white.withValues(alpha: 0.3)),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: ElevatedButton.icon(
-                            style: ButtonStyle(
-                              backgroundColor: WidgetStatePropertyAll(
-                                  Colors.transparent.withValues(alpha: 0.1)),
-                            ),
-                            onPressed: () {},
-                            icon: Icon(
-                              Iconsax.document_download,
-                              size: 20,
-                              color: Colors.white,
-                            ),
-                            label: Text(
-                              "Resume",
-                              style: theme.textTheme.bodyLarge,
-                            ),
-                          ),
-                        ),
-                      )
+                      ResumeDownloadButton(theme: theme)
                     ],
                   ),
                 ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../../../utils/config/constants.dart';
 import '../../../../utils/enums/enums.dart';
 import '../../../../utils/widgets/dotted_decoration.dart';
 import 'social_icon_buttons.dart';
@@ -54,15 +55,33 @@ class _ContactRotationCardState extends State<ContactRotationCard> {
               runSpacing: 40,
               spacing: 40,
               children: [
-                SocialIconsButton(iconData: FontAwesomeIcons.solidEnvelope),
-                SocialIconsButton(iconData: FontAwesomeIcons.linkedinIn),
-                SocialIconsButton(iconData: FontAwesomeIcons.squareGithub),
+                SocialIconsButton(
+                  iconData: FontAwesomeIcons.solidEnvelope,
+                  text: Constants.primaryEmail,
+                  isEmail: true,
+                ),
+                SocialIconsButton(
+                  iconData: FontAwesomeIcons.linkedinIn,
+                  text: Constants.linkedIn,
+                ),
+                SocialIconsButton(
+                  iconData: FontAwesomeIcons.squareGithub,
+                  text: Constants.githubProfile,
+                ),
                 SocialIconsButton(
                   iconData: FontAwesomeIcons.code,
                   isLeetCode: true,
+                  text: Constants.leetCode,
                 ),
-                SocialIconsButton(iconData: FontAwesomeIcons.instagram),
-                SocialIconsButton(iconData: FontAwesomeIcons.envelope),
+                SocialIconsButton(
+                  iconData: FontAwesomeIcons.instagram,
+                  text: Constants.instagram,
+                ),
+                SocialIconsButton(
+                  iconData: FontAwesomeIcons.envelope,
+                  text: Constants.secondaryEmail,
+                  isEmail: true,
+                ),
               ],
             ),
           ],

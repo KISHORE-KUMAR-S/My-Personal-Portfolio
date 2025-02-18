@@ -26,6 +26,12 @@ class _StickAnimationState extends State<StickAnimation>
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    stickController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final mediaQuerySize = MediaQuery.of(context).size;
