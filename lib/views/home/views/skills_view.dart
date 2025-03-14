@@ -16,12 +16,12 @@ class SkillsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final mediaQuerySize = MediaQuery.of(context).size;
+
     final isLightMode = context.read<AppStateProvider>().isLightMode;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
-      spacing: mediaQuerySize.height * 0.06,
+      spacing: context.screenHeight * 0.06,
       children: [
         _buildSectionTitle(theme, context),
         StickAnimation(color: isLightMode ? Colors.black : Colors.white),

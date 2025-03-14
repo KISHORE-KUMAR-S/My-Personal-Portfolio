@@ -1,24 +1,19 @@
 import 'package:delightful_toast/delight_toast.dart' show DelightToastBar;
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:provider/provider.dart' show ReadContext;
 
 import '../../providers/app_state_provider.dart';
 
 extension ContextExtensions on BuildContext {
-  bool get isTablet {
-    final mediaQuery = MediaQuery.of(this);
-    return mediaQuery.size.width <= 1025 && mediaQuery.size.width >= 770;
-  }
+  double get screenWidth => MediaQuery.of(this).size.width;
 
-  bool get isMobile {
-    final mediaQuery = MediaQuery.of(this);
-    return mediaQuery.size.width <= 770;
-  }
+  double get screenHeight => MediaQuery.of(this).size.height;
 
-  bool get isDesktop {
-    final mediaQuery = MediaQuery.of(this);
-    return mediaQuery.size.width > 1025;
-  }
+  bool get isTablet => screenWidth <= 1025 && screenWidth >= 770;
+
+  bool get isMobile => screenWidth <= 770;
+
+  bool get isDesktop => screenWidth > 1025;
 
   getResponiveValue<T>(List<T> number) {
     assert(number.length == 3);

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:personal_portfolio/utils/extensions/context_extensions.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../providers/app_state_provider.dart';
@@ -19,8 +20,8 @@ class _ContactRotationCardState extends State<ContactRotationCard> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final mediaQuerySize = MediaQuery.of(context).size;
-    final width = mediaQuerySize.width;
+
+    final width = context.screenWidth;
     double circleWidth = width < 500 ? width - 50 : 500;
     final isLightMode = context.read<AppStateProvider>().isLightMode;
 

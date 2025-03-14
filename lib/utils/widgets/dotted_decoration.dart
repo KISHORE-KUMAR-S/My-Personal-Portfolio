@@ -17,7 +17,7 @@ class DottedDecoration extends Decoration {
   final Shape shape;
   final Color color;
   final BorderRadius? borderRadius;
-  final List<double> dash; // Changed from List<int> to List<double>
+  final List<double> dash;
   final double strokeWidth;
 
   @override

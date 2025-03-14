@@ -23,22 +23,22 @@ class StepCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final mediaQuerySize = MediaQuery.of(context).size;
+
     final isLightMode = context.read<AppStateProvider>().isLightMode;
 
     return context.isDesktop
-        ? _buildDesktopStepCard(mediaQuerySize, theme, isLightMode)
-        : _buildMobileStepCard(mediaQuerySize, theme, isLightMode);
+        ? _buildDesktopStepCard(context, theme, isLightMode)
+        : _buildMobileStepCard(context, theme, isLightMode);
   }
 
   Widget _buildMobileStepCard(
-    Size mediaQuerySize,
+    BuildContext context,
     ThemeData theme,
     bool isLightMode,
   ) {
     return IntrinsicHeight(
       child: Padding(
-        padding: EdgeInsets.only(left: mediaQuerySize.width * 0.1),
+        padding: EdgeInsets.only(left: context.screenWidth * 0.1),
         child: Column(
           spacing: 10,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,12 +118,15 @@ class StepCard extends StatelessWidget {
   }
 
   Widget _buildDesktopStepCard(
-      Size mediaQuerySize, ThemeData theme, bool isLightMode) {
+    BuildContext context,
+    ThemeData theme,
+    bool isLightMode,
+  ) {
     return IntrinsicHeight(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildTimeline(mediaQuerySize, theme),
+          _buildTimeline(context, theme),
           VerticalDivider(
             thickness: 1,
             color: isLightMode ? Colors.black : Colors.white,
@@ -141,11 +144,11 @@ class StepCard extends StatelessWidget {
     );
   }
 
-  Expanded _buildTimeline(Size mediaQuerySize, ThemeData theme) {
+  Expanded _buildTimeline(BuildContext context, ThemeData theme) {
     return Expanded(
       child: Padding(
         padding: EdgeInsets.only(
-          left: mediaQuerySize.width * 0.1,
+          left: context.screenWidth * 0.1,
           top: 15,
         ),
         child: _buildWorkTimeline(theme),

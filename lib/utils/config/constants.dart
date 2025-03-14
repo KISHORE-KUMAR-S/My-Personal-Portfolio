@@ -17,6 +17,12 @@ class Constants {
   static const resume =
       "https://drive.google.com/file/d/12ba4jMe_7ZhXgQxkovx-1fZ7MzsQWGQY/view?usp=drivesdk";
 
+  static const localSend = "LocalSend";
+  static const localSendPlatforms = "Android / iOS / Linux / macOS / Windows";
+  static const localSendImage = "assets/images/localsend.png";
+  static const localSendDetails =
+      "LocalSend is a cross-platform app that enables secure communication between devices using a REST API and HTTPS encryption. Unlike other messaging apps that rely on external servers, LocalSend doesn't require an internet connection or third-party servers, making it a fast and reliable solution for local communication.";
+
   static outlinedText(BuildContext context, {double strokeWidth = 1}) {
     return Paint()
       ..style = PaintingStyle.stroke

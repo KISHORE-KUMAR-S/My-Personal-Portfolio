@@ -43,15 +43,14 @@ class _HeroViewState extends State<HeroView> {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuerySize = MediaQuery.of(context).size;
     final sizes = Sizes();
     final theme = Theme.of(context);
     final animationDuration = Constants.smallDelay;
     final fontSize = sizes.heroTitleFontSize(context);
 
     return SizedBox(
-      height: mediaQuerySize.height,
-      width: mediaQuerySize.width,
+      height: context.screenHeight,
+      width: context.screenWidth,
       child: LayoutBuilder(
         builder: (context, constraints) {
           return Stack(
@@ -60,7 +59,7 @@ class _HeroViewState extends State<HeroView> {
               _buildBackgroundGradient(context),
               LocationAndTime(),
               ..._buildAnimatedTexts(constraints, fontSize, animationDuration),
-              _buildNameAndSummary(mediaQuerySize, fontSize, theme, context),
+              _buildNameAndSummary(fontSize, theme, context),
             ],
           );
         },
@@ -69,7 +68,6 @@ class _HeroViewState extends State<HeroView> {
   }
 
   Widget _buildNameAndSummary(
-    Size mediaQuerySize,
     double fontSize,
     ThemeData theme,
     BuildContext context,
@@ -81,7 +79,7 @@ class _HeroViewState extends State<HeroView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            _buildCenteredContent(mediaQuerySize, fontSize, theme),
+            _buildCenteredContent(context, fontSize, theme),
             _buildProfessionalSummary(context)
           ],
         ),
@@ -133,7 +131,7 @@ class _HeroViewState extends State<HeroView> {
           duration: Duration(seconds: 3),
           child: Container(
             height: 900,
-            width: MediaQuery.of(context).size.width + 30,
+            width: context.screenWidth + 30,
             decoration: BoxDecoration(
               gradient: RadialGradient(
                 center: Alignment.topCenter,
@@ -212,7 +210,7 @@ class _HeroViewState extends State<HeroView> {
   }
 
   Widget _buildCenteredContent(
-    Size mediaQuerySize,
+    BuildContext context,
     double fontSize,
     ThemeData theme,
   ) {
@@ -252,7 +250,7 @@ class _HeroViewState extends State<HeroView> {
             ),
           ),
         ),
-        SizedBox(height: mediaQuerySize.height * 0.06),
+        SizedBox(height: context.screenHeight * 0.06),
       ],
     );
   }
