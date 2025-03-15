@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:personal_portfolio/providers/app_state_provider.dart';
 import 'package:personal_portfolio/utils/extensions/context_extensions.dart';
+import 'package:personal_portfolio/views/home/widgets/works_widgets/animated_bubble_button.dart';
+
+import 'project_data.dart';
 
 // For rendering on bigger devices eg. tablets, desktops etc.
 const double startWidthOfButton = 54;
@@ -17,6 +21,7 @@ const double heightOfButtonSm = startWidthOfButtonSm;
 class ProjectItem extends StatefulWidget {
   const ProjectItem({
     super.key,
+    required this.provider,
     required this.projectNumber,
     required this.title,
     required this.subtitle,
@@ -26,8 +31,6 @@ class ProjectItem extends StatefulWidget {
     this.titleStyle,
     this.subtitleStyle,
     required this.containerColor,
-    required this.backgroundColor,
-    required this.backgroundOnHoverColor,
     this.duration = const Duration(milliseconds: 300),
     this.projectItemHeight,
     this.subHeight,
@@ -49,8 +52,6 @@ class ProjectItem extends StatefulWidget {
   final TextStyle? titleStyle;
   final TextStyle? subtitleStyle;
   final Color containerColor;
-  final Color backgroundColor;
-  final Color backgroundOnHoverColor;
   final Duration duration;
   final double? projectItemHeight;
   final double? subHeight;
@@ -58,6 +59,7 @@ class ProjectItem extends StatefulWidget {
   final double? coloredContainerHeight;
   final EdgeInsetsGeometry? padding;
   final GestureTapCallback? onTap;
+  final AppStateProvider provider;
 }
 
 class _ProjectItemState extends State<ProjectItem>
@@ -152,6 +154,85 @@ class _ProjectItemState extends State<ProjectItem>
     ).animate(CurvedAnimation(parent: controller, curve: Curves.fastOutSlowIn))
       ..addListener(() => setState(() {}));
 
-    return const Placeholder();
+    return MouseRegion(
+      onEnter: (event) => mouseEnter(true),
+      onExit: (event) => mouseEnter(false),
+      child: SizedBox(
+        height: projectItemHeight,
+        width: context.screenWidth,
+        child: Stack(
+          children: [
+            Container(
+              width: context.screenWidth,
+              height: subHeight,
+              padding: widget.padding ?? EdgeInsets.only(top: subHeight / 4),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  AnimatedOpacity(
+                    opacity: isHovering ? 1 : 0.5,
+                    duration: widget.duration,
+                    child: ProjectData(
+                      duration: Duration(milliseconds: 400),
+                      projectNumber: widget.projectNumber,
+                      indicatorWidth: isHovering
+                          ? context.assignWidth(0.18)
+                          : context.assignWidth(0.12),
+                      leadingMargin: EdgeInsets.only(
+                        top: (defaultTitleStyle!.fontSize! -
+                                defaultNumberStyle!.fontSize!) /
+                            2.5,
+                        right: 8,
+                      ),
+                      indicatorMargin: EdgeInsets.only(
+                        top: defaultNumberStyle.fontSize! / 2.5,
+                        right: 8,
+                      ),
+                      title: widget.title,
+                      subtitle: widget.subtitle,
+                      titleStyle: defaultTitleStyle,
+                      subtitleStyle: defaultSubtitleStyle,
+                      projectNumberStyle: defaultNumberStyle,
+                      indicatorColor: Colors.grey,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Positioned(
+              top: positionOfColoredContainer,
+              right: context.assignWidth(0.1),
+              child: AnimatedContainer(
+                width: isHovering ? containerWidth : 0,
+                color: widget.containerColor,
+                height: containerHeight,
+                duration: Duration(milliseconds: 450),
+                curve: Curves.fastOutSlowIn,
+              ),
+            ),
+            Positioned(
+              top: positionOfButton,
+              right: context.assignWidth(0.1),
+              child: AnimatedBubbleButton(
+                color: widget.provider.isLightMode
+                    ? Colors.grey.shade100
+                    : Colors.grey.shade800,
+                imageColor: Colors.black,
+                startOffset: Offset(0, 0),
+                targetOffset: Offset(0.1, 0),
+                startBorderRadius: BorderRadius.all(Radius.circular(100)),
+                title: "SEE MY WORKS",
+                titleStyle: textTheme.bodyLarge?.copyWith(
+                  fontSize: context.responsiveSize(xs: 14, lg: 16, sm: 15),
+                  fontWeight: FontWeight.w500,
+                ),
+                onTap: () {},
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }

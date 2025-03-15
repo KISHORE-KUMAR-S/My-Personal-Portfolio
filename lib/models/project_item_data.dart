@@ -4,7 +4,7 @@ class ProjectItemData {
   ProjectItemData({
     this.appLogoColor = Colors.black,
     required this.category,
-    required this.coverUrl,
+    required this.coverImage,
     this.designer,
     this.githubUrl = "",
     this.hasBeenReleased = false,
@@ -28,7 +28,7 @@ class ProjectItemData {
 
   final Color appLogoColor;
   final String category;
-  final String coverUrl;
+  final String coverImage;
   final String? designer;
   final String githubUrl;
   final bool hasBeenReleased;

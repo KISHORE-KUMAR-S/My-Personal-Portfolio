@@ -20,6 +20,10 @@ class Constants {
   static const localSend = "LocalSend";
   static const localSendPlatforms = "Android / iOS / Linux / macOS / Windows";
   static const localSendImage = "assets/images/localsend.png";
+  static const localSendCoverImage = "assets/images/localsend_cover.png";
+  static const localSendSubtitle =
+      "Share files to nearby devices.\nFree, open-source, cross-platform";
+
   static const localSendDetails =
       "LocalSend is a cross-platform app that enables secure communication between devices using a REST API and HTTPS encryption. Unlike other messaging apps that rely on external servers, LocalSend doesn't require an internet connection or third-party servers, making it a fast and reliable solution for local communication.";
 

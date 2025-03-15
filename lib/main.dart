@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show BuildContext, WidgetsFlutterBinding, runApp;
 
 import 'package:provider/provider.dart' show ChangeNotifierProvider;
 

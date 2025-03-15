@@ -4,14 +4,14 @@ import '../utils/config/constants.dart';
 import 'project_item_data.dart';
 
 class Projects {
-  static ProjectItemData LOCALSEND = ProjectItemData(
-    category: Constants.localSend,
-    coverUrl: Constants.localSend,
+  static ProjectItemData localSend = ProjectItemData(
+    category: Constants.localSendPlatforms,
+    coverImage: Constants.localSendCoverImage,
     image: Constants.localSendImage,
     platform: Constants.localSendPlatforms,
     portfolioDescription: Constants.localSendDetails,
     primaryColor: Colors.green.shade900,
-    subtitle: Constants.localSend,
+    subtitle: Constants.localSendSubtitle,
     title: Constants.localSend,
   );
 }
