@@ -67,7 +67,6 @@ class _DottedBoxPainter extends BoxPainter {
       ..strokeWidth = strokeWidth
       ..style = PaintingStyle.stroke;
 
-    final rect = offset & configuration.size!;
     final path = Path();
     final dx = offset.dx;
     final dy = offset.dy;

@@ -24,6 +24,44 @@ extension ContextExtensions on BuildContext {
     return number[2];
   }
 
+  double get spacer => isMobile ? 300 : 400;
+
+  double assignHeight(
+    double fraction, {
+    double additions = 0,
+    double subtraction = 0,
+  }) {
+    return (screenHeight - (subtraction) + (additions)) * fraction;
+  }
+
+  double assignWidth(
+    double fraction, {
+    double additions = 0,
+    double subtraction = 0,
+  }) {
+    return (screenWidth - (subtraction) + (additions)) * fraction;
+  }
+
+  double get heroTitleFontSize {
+    if (isTablet) return 100;
+    if (isMobile) return 80;
+    return 127;
+  }
+
+  double responsiveSize({
+    required double xs,
+    required double lg,
+    double? sm,
+    double? md,
+    double? xl,
+  }) {
+    if (isMobile) return xs;
+    if (isTablet) return sm ?? (md ?? xs);
+    if (isDesktop) return md ?? lg;
+
+    return xl ?? lg;
+  }
+
   showToast(String message) {
     final isLightMode = read<AppStateProvider>().isLightMode;
 

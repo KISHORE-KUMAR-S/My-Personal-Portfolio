@@ -1,14 +1,16 @@
 import 'package:auto_size_text/auto_size_text.dart' show AutoSizeText;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:provider/provider.dart' show Consumer, ReadContext;
 
 import '../../providers/app_state_provider.dart';
-import '../../utils/sizes/sizes.dart';
+import '../../utils/extensions/context_extensions.dart';
 import '../splash/splash_screen.dart';
 import 'views/about_view.dart';
 import 'views/contacts_view.dart';
 import 'views/experience_view.dart';
+import 'views/works_view.dart';
 import 'views/hero_view.dart';
 import 'views/skills_view.dart';
 import 'widgets/hero_widgets/resume_download_button.dart';
@@ -27,7 +29,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final sizes = Sizes();
     final theme = Theme.of(context);
     final isLightMode = context.read<AppStateProvider>().isLightMode;
 
@@ -50,15 +51,17 @@ class _HomeScreenState extends State<HomeScreen> {
                             : null,
                         children: [
                           HeroView(scrollController: scrollController),
-                          SizedBox(height: sizes.spacer(context) / 1.5),
+                          SizedBox(height: context.spacer / 1.5),
                           SkillsView(),
-                          SizedBox(height: sizes.spacer(context) / 1.5),
+                          SizedBox(height: context.spacer / 1.5),
                           ExperienceView(),
-                          SizedBox(height: sizes.spacer(context) / 1.5),
+                          SizedBox(height: context.spacer / 1.5),
+                          WorksView(),
+                          SizedBox(height: context.spacer / 1.5),
                           AboutView(),
-                          SizedBox(height: sizes.spacer(context) / 1.5),
+                          SizedBox(height: context.spacer / 1.5),
                           ContactsView(),
-                          SizedBox(height: sizes.spacer(context) / 1.5),
+                          SizedBox(height: context.spacer / 1.5),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             spacing: 20,
@@ -79,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               )
                             ],
                           ),
-                          SizedBox(height: sizes.spacer(context) / 1.5),
+                          SizedBox(height: context.spacer / 1.5),
                         ],
                       ),
                       ThemeSwitcher(),

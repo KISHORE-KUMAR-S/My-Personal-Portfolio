@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import '../../../utils/config/constants.dart';
 import '../../../utils/extensions/context_extensions.dart';
 import '../../../utils/extensions/theme_extensions.dart';
-import '../../../utils/sizes/sizes.dart';
 import '../../../widgets/overlapping_hero_text.dart';
 import '../../../widgets/overlapping_text.dart';
 import '../widgets/hero_widgets/location_and_time.dart';
@@ -43,10 +42,8 @@ class _HeroViewState extends State<HeroView> {
 
   @override
   Widget build(BuildContext context) {
-    final sizes = Sizes();
     final theme = Theme.of(context);
     final animationDuration = Constants.smallDelay;
-    final fontSize = sizes.heroTitleFontSize(context);
 
     return SizedBox(
       height: context.screenHeight,
@@ -58,8 +55,9 @@ class _HeroViewState extends State<HeroView> {
             children: [
               _buildBackgroundGradient(context),
               LocationAndTime(),
-              ..._buildAnimatedTexts(constraints, fontSize, animationDuration),
-              _buildNameAndSummary(fontSize, theme, context),
+              ..._buildAnimatedTexts(
+                  constraints, context.heroTitleFontSize, animationDuration),
+              _buildNameAndSummary(theme, context),
             ],
           );
         },
@@ -68,7 +66,6 @@ class _HeroViewState extends State<HeroView> {
   }
 
   Widget _buildNameAndSummary(
-    double fontSize,
     ThemeData theme,
     BuildContext context,
   ) {
@@ -79,7 +76,7 @@ class _HeroViewState extends State<HeroView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            _buildCenteredContent(context, fontSize, theme),
+            _buildCenteredContent(context, theme),
             _buildProfessionalSummary(context)
           ],
         ),
@@ -211,7 +208,6 @@ class _HeroViewState extends State<HeroView> {
 
   Widget _buildCenteredContent(
     BuildContext context,
-    double fontSize,
     ThemeData theme,
   ) {
     final isMobile = context.isMobile;
@@ -224,13 +220,17 @@ class _HeroViewState extends State<HeroView> {
             text: "",
             backgroundText: "Kishore Kumar",
             offset: Offset(
-              isMobile ? fontSize / 8 : fontSize / 3,
-              isMobile ? fontSize / 1.25 : fontSize / 3,
+              isMobile
+                  ? context.heroTitleFontSize / 8
+                  : context.heroTitleFontSize / 3,
+              isMobile
+                  ? context.heroTitleFontSize / 1.25
+                  : context.heroTitleFontSize / 3,
             ),
-            foregroundStyle:
-                theme.textTheme.headlineLarge?.copyWith(fontSize: fontSize),
+            foregroundStyle: theme.textTheme.headlineLarge
+                ?.copyWith(fontSize: context.heroTitleFontSize),
             backgroundStyle: TextStyle(
-              fontSize: fontSize,
+              fontSize: context.heroTitleFontSize,
               fontFamily: 'Urbanist',
               foreground: Constants.outlinedText(context),
             ),
@@ -244,9 +244,9 @@ class _HeroViewState extends State<HeroView> {
             child: AutoSizeText(
               "Kishore Kumar",
               style: theme.textTheme.headlineLarge!
-                  .copyWith(height: 0.4, fontSize: fontSize),
+                  .copyWith(height: 0.4, fontSize: context.heroTitleFontSize),
               maxLines: 1,
-              maxFontSize: fontSize,
+              maxFontSize: context.heroTitleFontSize,
             ),
           ),
         ),
