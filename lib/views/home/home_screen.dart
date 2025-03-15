@@ -50,11 +50,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             ? NeverScrollableScrollPhysics()
                             : null,
                         children: [
-                          // HeroView(scrollController: scrollController),
-                          // SizedBox(height: context.spacer / 1.5),
-                          // SkillsView(),
-                          // SizedBox(height: context.spacer / 1.5),
-                          // ExperienceView(),
+                          HeroView(scrollController: scrollController),
+                          SizedBox(height: context.spacer / 1.5),
+                          SkillsView(),
+                          SizedBox(height: context.spacer / 1.5),
+                          ExperienceView(),
                           SizedBox(height: context.spacer / 1.5),
                           WorksView(provider: provider),
                           SizedBox(height: context.spacer / 1.5),

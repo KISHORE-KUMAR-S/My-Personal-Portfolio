@@ -18,7 +18,6 @@ class ProjectItemData {
     this.playStoreUrl = "",
     required this.platform,
     required this.portfolioDescription,
-    required this.primaryColor,
     this.projectAssets = const [],
     required this.subtitle,
     this.technologyUsed,
@@ -42,7 +41,7 @@ class ProjectItemData {
   final String playStoreUrl;
   final String platform;
   final String portfolioDescription;
-  final Color primaryColor;
+
   final List<String> projectAssets;
   final String subtitle;
   final String? technologyUsed;

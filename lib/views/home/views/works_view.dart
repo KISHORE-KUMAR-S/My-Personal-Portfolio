@@ -47,14 +47,14 @@ class WorksView extends StatelessWidget {
     List<Widget> items = [];
     int margin = (subHeight * (data.length - 1)).toInt();
 
-    for (int index = data.length - 1; index >= 0; index--) {
+    for (int index = 0; index < data.length; index++) {
       items.add(
         Container(
           margin: EdgeInsets.only(top: margin.toDouble()),
           child: ProjectItem(
             provider: provider,
             projectNumber: index + 1 > 9 ? "${index + 1}" : "0${index + 1}",
-            imageUrl: data[index].coverImage,
+            imageUrl: data[index].image,
             projectItemHeight: projectHeight,
             subHeight: subHeight,
             title: data[index].title,
