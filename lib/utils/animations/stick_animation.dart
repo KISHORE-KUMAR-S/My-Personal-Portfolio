@@ -1,8 +1,8 @@
 import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
-import 'package:personal_portfolio/utils/extensions/context_extensions.dart';
 
 import '../config/constants.dart';
+import '../extensions/context_extensions.dart';
 import 'stick.dart';
 
 class StickAnimation extends StatefulWidget {

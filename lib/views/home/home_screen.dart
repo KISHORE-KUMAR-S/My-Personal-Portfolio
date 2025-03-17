@@ -50,38 +50,38 @@ class _HomeScreenState extends State<HomeScreen> {
                             ? NeverScrollableScrollPhysics()
                             : null,
                         children: [
-                          HeroView(scrollController: scrollController),
-                          SizedBox(height: context.spacer / 1.5),
-                          SkillsView(),
-                          SizedBox(height: context.spacer / 1.5),
-                          ExperienceView(),
+                          // HeroView(scrollController: scrollController),
+                          // SizedBox(height: context.spacer / 1.5),
+                          // SkillsView(),
+                          // SizedBox(height: context.spacer / 1.5),
+                          // ExperienceView(),
                           SizedBox(height: context.spacer / 1.5),
                           WorksView(provider: provider),
                           SizedBox(height: context.spacer / 1.5),
-                          AboutView(),
-                          SizedBox(height: context.spacer / 1.5),
-                          ContactsView(),
-                          SizedBox(height: context.spacer / 1.5),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            spacing: 20,
-                            children: [
-                              Icon(
-                                FontAwesomeIcons.trowelBricks,
-                                color:
-                                    isLightMode ? Colors.black : Colors.white,
-                                size: 20,
-                              ),
-                              AutoSizeText(
-                                "Under Construction. Enjoy the beta-version now.",
-                                style: theme.textTheme.titleLarge,
-                                minFontSize: 10,
-                                maxFontSize: 20,
-                                wrapWords: true,
-                                softWrap: true,
-                              )
-                            ],
-                          ),
+                          // AboutView(),
+                          // SizedBox(height: context.spacer / 1.5),
+                          // ContactsView(),
+                          // SizedBox(height: context.spacer / 1.5),
+                          // Row(
+                          //   mainAxisAlignment: MainAxisAlignment.center,
+                          //   spacing: 20,
+                          //   children: [
+                          //     Icon(
+                          //       FontAwesomeIcons.trowelBricks,
+                          //       color:
+                          //           isLightMode ? Colors.black : Colors.white,
+                          //       size: 20,
+                          //     ),
+                          //     AutoSizeText(
+                          //       "Under Construction. Enjoy the beta-version now.",
+                          //       style: theme.textTheme.titleLarge,
+                          //       minFontSize: 10,
+                          //       maxFontSize: 20,
+                          //       wrapWords: true,
+                          //       softWrap: true,
+                          //     )
+                          //   ],
+                          // ),
                           SizedBox(height: context.spacer / 1.5),
                         ],
                       ),

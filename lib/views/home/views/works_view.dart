@@ -4,7 +4,8 @@ import '../../../models/recent_works.dart';
 import '../../../providers/app_state_provider.dart';
 import '../../../utils/extensions/context_extensions.dart';
 import '../widgets/section_title.dart';
-import '../widgets/works_widgets/project_item.dart';
+import '../widgets/works_widgets/project_item_display_large.dart';
+import '../widgets/works_widgets/project_item_display_small.dart';
 
 class WorksView extends StatelessWidget {
   const WorksView({super.key, required this.provider});
@@ -26,13 +27,22 @@ class WorksView extends StatelessWidget {
           title: "Open Source",
           backgroundText: "Contributions",
         ),
-        ..._buildOpenSourceContributions(
-          data: RecentWorks.openSourceContributions,
-          projectHeight: projectHeight,
-          subHeight: subHeight,
-          theme: theme,
-          context: context,
-        ),
+        if (context.isMobile)
+          ..._buildOpenSourceContributionsMobileView(
+            data: RecentWorks.openSourceContributions,
+            projectHeight: projectHeight,
+            subHeight: subHeight,
+            theme: theme,
+            context: context,
+          )
+        else
+          ..._buildOpenSourceContributions(
+            data: RecentWorks.openSourceContributions,
+            projectHeight: projectHeight,
+            subHeight: subHeight,
+            theme: theme,
+            context: context,
+          ),
       ],
     );
   }
@@ -45,26 +55,49 @@ class WorksView extends StatelessWidget {
     required BuildContext context,
   }) {
     List<Widget> items = [];
-    int margin = (subHeight * (data.length - 1)).toInt();
 
     for (int index = 0; index < data.length; index++) {
       items.add(
-        Container(
-          margin: EdgeInsets.only(top: margin.toDouble()),
-          child: ProjectItem(
-            provider: provider,
-            projectNumber: index + 1 > 9 ? "${index + 1}" : "0${index + 1}",
-            imageUrl: data[index].image,
-            projectItemHeight: projectHeight,
-            subHeight: subHeight,
-            title: data[index].title,
-            subtitle: data[index].subtitle,
-            containerColor: theme.colorScheme.secondary,
-            onTap: () {},
-          ),
+        ProjectItemDisplayLarge(
+          provider: provider,
+          projectNumber: index + 1 > 9 ? "${index + 1}" : "0${index + 1}",
+          imageUrl: data[index].image,
+          projectItemHeight: projectHeight,
+          subHeight: subHeight,
+          title: data[index].title,
+          subtitle: data[index].subtitle,
+          containerColor: theme.colorScheme.secondary,
+          onTap: () {},
         ),
       );
-      margin -= subHeight.toInt();
+    }
+
+    return items;
+  }
+
+  List<Widget> _buildOpenSourceContributionsMobileView({
+    required List<ProjectItemData> data,
+    required double projectHeight,
+    required double subHeight,
+    required ThemeData theme,
+    required BuildContext context,
+  }) {
+    List<Widget> items = [];
+
+    for (int index = 0; index < data.length; index++) {
+      items.add(
+        ProjectItemDisplaySmall(
+          provider: provider,
+          projectNumber: index + 1 > 9 ? "${index + 1}" : "0${index + 1}",
+          imageUrl: data[index].image,
+          projectItemHeight: projectHeight,
+          subHeight: subHeight,
+          title: data[index].title,
+          subtitle: data[index].subtitle,
+          containerColor: theme.colorScheme.secondary,
+          onTap: () {},
+        ),
+      );
     }
 
     return items;
