@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart' show GoRoute, GoRouter, GoRouterState;
-import 'package:personal_portfolio/views/localsend/views/localsend_screen.dart';
+import 'package:go_router/go_router.dart';
+import '../views/localsend/views/localsend_screen.dart';
 
-import '../utils/enums/enums.dart' show SlidePosition;
+import '../utils/enums/enums.dart';
 import '../views/home/home_screen.dart';
-import 'route_slide_transition.dart' show RouteSlideTransition;
-import 'routes.dart' show Routes;
+import 'route_slide_transition.dart';
+import 'routes.dart';
 
 final router = GoRouter(
   initialLocation: Routes.home,

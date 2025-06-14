@@ -1,6 +1,7 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:auto_size_text/auto_size_text.dart' show AutoSizeText;
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart'
+    show FontAwesomeIcons;
 
 import 'package:provider/provider.dart' show Consumer, ReadContext;
 
@@ -61,27 +62,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           AboutView(),
                           SizedBox(height: context.spacer / 1.5),
                           ContactsView(),
-                          SizedBox(height: context.spacer / 1.5),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            spacing: 20,
-                            children: [
-                              Icon(
-                                FontAwesomeIcons.trowelBricks,
-                                color:
-                                    isLightMode ? Colors.black : Colors.white,
-                                size: 20,
-                              ),
-                              AutoSizeText(
-                                "Under Construction. Enjoy the beta-version now.",
-                                style: theme.textTheme.titleLarge,
-                                minFontSize: 10,
-                                maxFontSize: 20,
-                                wrapWords: true,
-                                softWrap: true,
-                              )
-                            ],
-                          ),
                           SizedBox(height: context.spacer / 1.5),
                         ],
                       ),

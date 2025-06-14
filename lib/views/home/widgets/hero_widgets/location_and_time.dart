@@ -1,5 +1,6 @@
 import 'dart:async' show Timer;
-import 'package:animated_flip_counter/animated_flip_counter.dart';
+import 'package:animated_flip_counter/animated_flip_counter.dart'
+    show AnimatedFlipCounter;
 import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart' show Iconsax;
