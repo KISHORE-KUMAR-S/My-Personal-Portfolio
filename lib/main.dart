@@ -3,7 +3,7 @@ import 'package:flutter/material.dart'
 
 import 'package:provider/provider.dart' show ChangeNotifierProvider;
 
-import 'app.dart';
+import 'portfolio_app.dart';
 import 'providers/app_state_provider.dart';
 import 'repositories/theme_repository.dart';
 
@@ -14,6 +14,6 @@ void main() {
 
   runApp(ChangeNotifierProvider(
     create: (BuildContext context) => AppStateProvider(themeRepo),
-    child: App(),
+    child: PortfolioApp(),
   ));
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart' show GoRoute, GoRouter, GoRouterState;
+import 'package:personal_portfolio/views/localsend/views/localsend_screen.dart';
 
 import '../utils/enums/enums.dart' show SlidePosition;
 import '../views/home/home_screen.dart';
@@ -14,6 +15,13 @@ final router = GoRouter(
       pageBuilder: (context, state) => _buildPageWithDefaultTransition(
         state: state,
         child: HomeScreen(),
+      ),
+    ),
+    GoRoute(
+      path: Routes.localsend,
+      pageBuilder: (context, state) => _buildPageWithDefaultTransition(
+        state: state,
+        child: LocalsendScreen(),
       ),
     )
   ],

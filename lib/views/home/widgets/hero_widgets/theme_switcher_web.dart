@@ -45,7 +45,7 @@ class ThemeSwitcherWeb extends StatelessWidget {
                               provider,
                               context,
                             ),
-                            if (i < allThemes.length - 1) buildSpacer(),
+                            if (i < allThemes.length - 1) buildSpacer(context),
                           ]
                         ],
                       )),

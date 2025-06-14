@@ -228,7 +228,7 @@ class _ProjectItemDisplayLargeState extends State<ProjectItemDisplayLarge>
                   fontSize: context.responsiveSize(xs: 14, lg: 16, sm: 15),
                   fontWeight: FontWeight.w500,
                 ),
-                onTap: () {},
+                onTap: widget.onTap,
               ),
             )
           ],

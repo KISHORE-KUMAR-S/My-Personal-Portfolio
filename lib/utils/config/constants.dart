@@ -26,6 +26,8 @@ class Constants {
 
   static const localSendDetails =
       "LocalSend is a cross-platform app that enables secure communication between devices using a REST API and HTTPS encryption. Unlike other messaging apps that rely on external servers, LocalSend doesn't require an internet connection or third-party servers, making it a fast and reliable solution for local communication.";
+  static const localSendContribution =
+      "Actively contributed to LocalSend, a cross-platform AirDrop alternative, by developing a robust multi-app sharing feature, integrating comprehensive Tamil language support to enhance accessibility for regional users, and collaborating with the core maintainers to refine and successfully merge key enhancements into the main codebase.";
 
   static outlinedText(BuildContext context, {double strokeWidth = 1}) {
     return Paint()

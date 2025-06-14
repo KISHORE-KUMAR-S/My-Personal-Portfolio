@@ -53,7 +53,7 @@ class _ThemeSwitcherMobileState extends State<ThemeSwitcherMobile> {
                           setState(() => isOpened = !isOpened);
                         },
                       ),
-                      if (i < allThemes.length - 1) buildSpacer(),
+                      if (i < allThemes.length - 1) buildSpacer(context),
                     ]
                   ],
                 ),

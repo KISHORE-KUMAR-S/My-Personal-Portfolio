@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../../models/project_item_data.dart';
 import '../../../models/recent_works.dart';
 import '../../../providers/app_state_provider.dart';
@@ -27,9 +28,10 @@ class WorksView extends StatelessWidget {
           title: "Open Source",
           backgroundText: "Contributions",
         ),
+        SizedBox(height: 25),
         if (context.isMobile)
           ..._buildOpenSourceContributionsMobileView(
-            data: RecentWorks.openSourceContributions,
+            data: RecentWorks.openSourceContributions(context),
             projectHeight: projectHeight,
             subHeight: subHeight,
             theme: theme,
@@ -37,7 +39,7 @@ class WorksView extends StatelessWidget {
           )
         else
           ..._buildOpenSourceContributions(
-            data: RecentWorks.openSourceContributions,
+            data: RecentWorks.openSourceContributions(context),
             projectHeight: projectHeight,
             subHeight: subHeight,
             theme: theme,
@@ -67,7 +69,7 @@ class WorksView extends StatelessWidget {
           title: data[index].title,
           subtitle: data[index].subtitle,
           containerColor: theme.colorScheme.secondary,
-          onTap: () {},
+          onTap: data[index].onTap,
         ),
       );
     }
@@ -95,7 +97,7 @@ class WorksView extends StatelessWidget {
           title: data[index].title,
           subtitle: data[index].subtitle,
           containerColor: theme.colorScheme.secondary,
-          onTap: () {},
+          onTap: data[index].onTap,
         ),
       );
     }

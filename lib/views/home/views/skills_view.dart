@@ -102,6 +102,11 @@ class SkillsView extends StatelessWidget {
                   "text": "GetX",
                   "isImageIcon": true,
                 },
+                {
+                  "icon": AssetImage('assets/images/riverpod.png'),
+                  "text": "Riverpod",
+                  "isImageIcon": true,
+                },
                 {"icon": FontAwesomeIcons.dartLang, "text": "Provider"},
               ],
             ),

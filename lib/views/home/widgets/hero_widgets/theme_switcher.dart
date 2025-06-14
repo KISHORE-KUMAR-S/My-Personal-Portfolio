@@ -13,11 +13,11 @@ class ThemeSwitcher extends StatelessWidget {
   }
 }
 
-Transform buildSpacer() {
+Transform buildSpacer(BuildContext context) {
   return Transform.scale(
     scale: 2,
     child: Container(
-      height: 30,
+      height: context.isMobile ? 40 : 30,
       width: 2,
       color: Colors.white.withValues(alpha: 0.1),
     ),

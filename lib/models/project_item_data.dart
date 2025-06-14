@@ -23,6 +23,7 @@ class ProjectItemData {
     this.technologyUsed,
     required this.title,
     this.webUrl = "",
+    required this.onTap,
   });
 
   final Color appLogoColor;
@@ -47,4 +48,5 @@ class ProjectItemData {
   final String? technologyUsed;
   final String title;
   final String webUrl;
+  final VoidCallback onTap;
 }
