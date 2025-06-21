@@ -7,6 +7,7 @@ import 'package:iconsax/iconsax.dart' show Iconsax;
 import 'package:intl/intl.dart' show DateFormat;
 import '../../../../utils/config/constants.dart';
 import '../../../../utils/extensions/context_extensions.dart';
+import '../../../../widgets/bordered_icon.dart';
 
 class LocationAndTime extends StatefulWidget {
   const LocationAndTime({super.key});
@@ -55,7 +56,8 @@ class _LocationAndTimeState extends State<LocationAndTime> {
           mainAxisAlignment: MainAxisAlignment.center,
           spacing: 20,
           children: [
-            if (!context.isMobile) _buildIcon(colorScheme, Iconsax.location),
+            if (!context.isMobile)
+              BorderedIcon(colorScheme: colorScheme, icon: Iconsax.location),
             if (!context.isMobile) Text("India", style: textTheme.bodyLarge),
             _buildAnimatedFlipCounter(
               value: DateFormat('hh').format(_now),
@@ -76,7 +78,8 @@ class _LocationAndTimeState extends State<LocationAndTime> {
               wholeDigits: 2,
             ),
             Text(DateFormat('a').format(_now), style: textTheme.bodyLarge),
-            if (!context.isMobile) _buildIcon(colorScheme, Iconsax.clock),
+            if (!context.isMobile)
+              BorderedIcon(colorScheme: colorScheme, icon: Iconsax.clock),
           ],
         ),
       ),
@@ -102,25 +105,6 @@ class _LocationAndTimeState extends State<LocationAndTime> {
     return Text(
       ":",
       style: textTheme.bodyLarge!.copyWith(fontSize: fontSize),
-    );
-  }
-
-  Widget _buildIcon(ColorScheme colorScheme, IconData icon) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.white),
-        shape: BoxShape.circle,
-      ),
-      padding: const EdgeInsets.all(10),
-      child: CircleAvatar(
-        radius: 20,
-        backgroundColor: colorScheme.secondary,
-        child: Icon(
-          icon,
-          color: Colors.white,
-          size: 15,
-        ),
-      ),
     );
   }
 }

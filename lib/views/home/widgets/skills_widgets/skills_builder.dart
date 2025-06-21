@@ -1,7 +1,7 @@
-import 'package:auto_size_text/auto_size_text.dart' show AutoSizeText;
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import '../../../../widgets/bordered_icon.dart';
 import '../../../../providers/app_state_provider.dart';
 import '../../../../utils/extensions/context_extensions.dart';
 import '../../../../utils/widgets/constraint_title.dart';
@@ -57,16 +57,14 @@ class SkillsBuilder extends StatelessWidget {
                     spacing: 10,
                     children: [
                       if (isImageIcon)
-                        ImageIcon(
-                          skill["icon"] as ImageProvider<Object>,
-                          color: isLightMode ? Colors.black : Colors.white,
-                          size: 50,
+                        BorderedIcon(
+                          colorScheme: theme.colorScheme,
+                          image: skill['icon'] as ImageProvider<Object>,
                         )
                       else
-                        FaIcon(
-                          skill["icon"] as IconData,
-                          color: isLightMode ? Colors.black : Colors.white,
-                          size: 50,
+                        BorderedIcon(
+                          colorScheme: theme.colorScheme,
+                          icon: skill['icon'] as IconData,
                         ),
                       AutoSizeText(
                         skill["text"] as String,
