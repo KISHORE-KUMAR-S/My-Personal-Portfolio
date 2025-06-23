@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart' show TapGestureRecognizer;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart'
     show FontAwesomeIcons;
+import 'package:personal_portfolio/widgets/custom_rich_text.dart';
 import 'package:url_launcher/url_launcher.dart'
     show canLaunchUrl, LaunchMode, launchUrl;
 import '../../../utils/extensions/context_extensions.dart';
@@ -84,12 +85,10 @@ class LocalsendScreen extends StatelessWidget {
               spacing: 10,
               children: [
                 _buildIcon(colorScheme, FontAwesomeIcons.github),
-                AutoSizeText(
-                  "Merged Pull Requests",
-                  textAlign: TextAlign.center,
-                  style: theme.textTheme.titleLarge?.copyWith(
-                    color: theme.colorScheme.onTertiary,
-                  ),
+                CustomRichText(
+                  theme: theme,
+                  context: context,
+                  text: "Merged Pull Request",
                 ),
                 _buildIcon(colorScheme, FontAwesomeIcons.codeMerge),
               ],

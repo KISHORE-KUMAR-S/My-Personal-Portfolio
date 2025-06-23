@@ -104,7 +104,7 @@ class _HeroViewState extends State<HeroView> {
             children: [
               TextSpan(
                 text:
-                    ", creating user-centric mobile applications. Proficient in Flutter, Dart, REST API Integration, and state management using Provider and GetX. Dedicated to delivering seamless app functionality through strong problem-solving , testing and debugging expertise. Passionate about developing high-quality apps and collaborating with agile teams.",
+                    ", creating user-centric mobile applications. Proficient in Flutter, Dart, REST API Integration, and state management using GetX, Riverpod and Provider. Dedicated to delivering seamless app functionality through strong problem-solving , testing and debugging expertise. Passionate about developing high-quality apps and collaborating with agile teams.",
                 style: TextStyle(
                   fontSize: context.isDesktop ? 16 : 12,
                   fontWeight: FontWeight.w300,

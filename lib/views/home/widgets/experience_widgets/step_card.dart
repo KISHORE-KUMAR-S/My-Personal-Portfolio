@@ -10,13 +10,13 @@ import '../../../../utils/extensions/string_extensions.dart';
 class StepCard extends StatelessWidget {
   const StepCard({
     super.key,
-    required this.experience,
+    required this.child,
     required this.start,
     required this.end,
     required this.index,
   });
 
-  final Experience experience;
+  final Experience child;
   final double start, end;
   final int index;
 
@@ -62,8 +62,8 @@ class StepCard extends StatelessWidget {
   }
 
   Widget _buildWorkTimeline(ThemeData theme) {
-    var startDate = experience.startDate.toMonthAndYear();
-    var endDate = experience.endDate.toMonthAndYear();
+    var startDate = child.startDate.toMonthAndYear();
+    var endDate = child.endDate.toMonthAndYear();
     var now = DateTime.now().toMonthAndYear();
 
     var timeline =
@@ -99,15 +99,15 @@ class StepCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          experience.company,
+          child.company,
           style: theme.textTheme.titleMedium!.copyWith(height: 1.3),
         ),
         Text(
-          experience.position,
+          child.position,
           style:
               theme.textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.w500),
         ),
-        ...experience.responsibilities.map(
+        ...child.responsibilities.map(
           (responsibility) => Text(
             responsibility.prefixDash(),
             style: theme.textTheme.bodyLarge,

@@ -28,8 +28,8 @@ class _StickAnimationState extends State<StickAnimation>
 
   @override
   void dispose() {
-    super.dispose();
     stickController.dispose();
+    super.dispose();
   }
 
   @override

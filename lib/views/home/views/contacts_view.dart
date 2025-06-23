@@ -2,7 +2,7 @@ import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
 
 import '../../../utils/config/constants.dart';
-import '../../../utils/extensions/context_extensions.dart';
+import '../../../widgets/custom_rich_text.dart';
 import '../widgets/contact_widgets/contact_rotation_card.dart';
 import '../widgets/section_title_with_subtitle.dart';
 
@@ -29,7 +29,11 @@ class _ContactsViewState extends State<ContactsView> {
                   spacing: 50.0,
                   children: [
                     _buildSectionTitle(),
-                    _buildSubTitle(theme, context),
+                    CustomRichText(
+                      theme: theme,
+                      context: context,
+                      text: "Then, I'd love to hear from you!",
+                    ),
                     ContactRotationCard(),
                   ],
                 ),
@@ -38,28 +42,6 @@ class _ContactsViewState extends State<ContactsView> {
           ),
         );
       },
-    );
-  }
-
-  Widget _buildSubTitle(ThemeData theme, BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: theme.colorScheme.secondary,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text.rich(
-            textAlign: TextAlign.center,
-            TextSpan(
-              text: "Then, I'd love to hear from you!",
-              style: theme.textTheme.titleMedium!.copyWith(
-                fontSize: context.isMobile ? 16.0 : null,
-              ),
-            ),
-          ),
-        ],
-      ),
     );
   }
 

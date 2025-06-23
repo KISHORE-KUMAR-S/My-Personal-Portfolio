@@ -6,12 +6,14 @@ class BorderedIcon extends StatelessWidget {
     required this.colorScheme,
     this.icon,
     this.image,
+    this.color,
   }) : assert(icon != null || image != null,
             'Either icon or image must be provided');
 
   final ColorScheme colorScheme;
   final IconData? icon;
   final ImageProvider? image;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +29,12 @@ class BorderedIcon extends StatelessWidget {
         child: icon != null
             ? Icon(
                 icon,
-                color: Colors.white,
+                color: color ?? Colors.white,
                 size: 15,
               )
             : Image(
                 image: image!,
-                color: Colors.white,
+                color: color ?? Colors.white,
                 width: 20,
                 height: 20,
                 fit: BoxFit.contain,

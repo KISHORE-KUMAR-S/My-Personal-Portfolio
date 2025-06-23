@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import '../../../../providers/app_state_provider.dart';
 
 class LocalSendLogo extends StatefulWidget {
   const LocalSendLogo({super.key});

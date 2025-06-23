@@ -39,7 +39,7 @@ class _ExperienceViewState extends State<ExperienceView> {
                 : (index + 1) / experiences.length;
 
             return StepCard(
-              experience: experience,
+              child: experience,
               start: start,
               end: end,
               index: index + 1,

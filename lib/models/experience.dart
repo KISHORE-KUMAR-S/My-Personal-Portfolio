@@ -20,7 +20,7 @@ class Experience {
       responsibilities: [
         "Designed and implemented user-focused app-features, ensuring smooth navigation and enhanced functionality.",
         "Integrated REST APIs, Firebase, and third-party packages for back-end services and for fetching real-time data.",
-        "Managed state effectively using Provider and GetX for scalable app architecture.",
+        "Managed state effectively using GetX, Riverpod and Provider for scalable app architecture.",
         "End-to-end testing and debugging performed to deliver reliable, high-quality applications.",
       ],
     ),

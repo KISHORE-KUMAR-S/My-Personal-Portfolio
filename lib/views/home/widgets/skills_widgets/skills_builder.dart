@@ -1,8 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import '../../../../widgets/bordered_icon.dart';
-import '../../../../providers/app_state_provider.dart';
 import '../../../../utils/extensions/context_extensions.dart';
 import '../../../../utils/widgets/constraint_title.dart';
 
@@ -21,8 +19,6 @@ class SkillsBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isLightMode = context.read<AppStateProvider>().isLightMode;
-
     return Container(
       constraints: BoxConstraints(maxWidth: 400),
       margin: const EdgeInsets.only(left: 50),

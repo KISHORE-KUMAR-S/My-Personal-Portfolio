@@ -15,7 +15,7 @@ class Constants {
   static const leetCode = "https://leetcode.com/u/livekishore2001/";
   static const instagram = "https://www.instagram.com/2.k.k.k.1/";
   static const resume =
-      "https://drive.google.com/file/d/12ba4jMe_7ZhXgQxkovx-1fZ7MzsQWGQY/view?usp=drivesdk";
+      "https://drive.google.com/file/d/1zwd5pU2fs8EmrK5U6oaGFwUdC4W-Xn9w/view?usp=sharing";
 
   static const localSend = "LocalSend";
   static const localSendPlatforms = "Android / iOS / Linux / macOS / Windows";

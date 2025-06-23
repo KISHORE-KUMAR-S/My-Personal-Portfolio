@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:personal_portfolio/widgets/bordered_icon.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -88,10 +89,9 @@ class _SocialIconsButtonState extends State<SocialIconsButton> {
                   await launchUrlString(widget.text);
                 }
               },
-              child: Icon(
-                widget.iconData,
-                size: isMobile ? 25 : 50,
-                color: onHover,
+              child: BorderedIcon(
+                colorScheme: theme.colorScheme,
+                icon: widget.iconData,
               ),
             ),
     );
