@@ -1,19 +1,17 @@
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
-// Applies a BlendMode to its child.
 class BlendMask extends SingleChildRenderObjectWidget {
   final BlendMode _blendMode;
   final double _opacity;
 
-  BlendMask(
-      {required BlendMode blendMode,
-      double opacity = 1.0,
-      Key? key,
-      Widget? child})
-      : _blendMode = blendMode,
-        _opacity = opacity,
-        super(key: key, child: child);
+  const BlendMask({
+    required BlendMode blendMode,
+    double opacity = 1.0,
+    super.key,
+    super.child,
+  })  : _blendMode = blendMode,
+        _opacity = opacity;
 
   @override
   RenderObject createRenderObject(context) {
