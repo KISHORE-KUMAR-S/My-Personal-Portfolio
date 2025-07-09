@@ -1,4 +1,4 @@
-# 🌟 My Personal Portfolio
+# 🌟 My Portfolio
 
 A sleek, animated personal portfolio website built using **Flutter & Dart**, showcasing my skills, projects, and contact information. Includes smooth page transitions and a custom pre-loader.
 
