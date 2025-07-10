@@ -41,6 +41,7 @@ A sleek, animated personal portfolio website built using **Flutter & Dart**, sho
 
 - Flutter SDK (v3.0+)
 - Git
+- GitHub
 
 ### Steps
 
