@@ -22,6 +22,13 @@ A sleek, animated personal portfolio website built using **Flutter & Dart**, sho
 
 ---
 
+## 🙏 Credits
+
+- David Cobbina: https://davidcobbina.com
+- Muzammil Hussain: https://muzammil-hussain.vercel.app/
+
+---
+
 ## 📦 Installation
 
 ### Prerequisites
