@@ -30,6 +30,7 @@ A sleek, animated personal portfolio website built using **Flutter & Dart**, sho
 ## 🙏 Credits
 
 - David Cobbina: https://davidcobbina.com
+- gskinnerTeam Flutter Vignettes: https://github.com/gskinnerTeam/flutter_vignettes
 - Muzammil Hussain: https://muzammil-hussain.vercel.app/
 
 ---
